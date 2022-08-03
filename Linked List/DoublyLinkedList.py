@@ -88,6 +88,22 @@ class DoublyLinkedList:
         else:
           temp = temp.next
 
+  def set(self, index, value):
+    if index < 0:
+        print('Please give a positive index')
+    elif index > self.length -1 :
+        print('Required index value greater than number of elements in list')
+    else:
+      temp = self.head
+      print('Setting the value of item at index {} to {}: '.format(index, value))
+      for i in range(self.length):
+        if i == index:
+          temp.value = value
+          print('The value at index {} has been set to {}'.format(index, value))
+        else:
+          temp = temp.next
+    
+
 if __name__ == '__main__':
   dll = DoublyLinkedList(11)
   dll.print_list()
@@ -95,11 +111,8 @@ if __name__ == '__main__':
   dll.append(13)
   dll.append(14)
   dll.print_list()
-  dll.pop_first()
+  dll.set(1, 100)
   dll.print_list()
-  print('Head:', dll.head.value)
-  print('Tail:', dll.tail.value)
-  print(dll.get(3))
   # dll.print_list()
   # dll.pop()
   # dll.print_list()      
